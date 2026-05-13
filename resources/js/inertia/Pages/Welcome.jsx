@@ -277,11 +277,141 @@ const promotionGradients = [
     "from-[#1e3a8a] via-[#2563eb] to-[#60a5fa]",
 ];
 
+function IconHotels(props) {
+    return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+            <path d="M3 21V8l4-3 4 3v13" />
+            <path d="M11 21V11l5-3 5 3v10" />
+            <path d="M3 21h18" />
+            <path d="M6 12h.01M6 15h.01M14 14h.01M14 17h.01M18 14h.01M18 17h.01" />
+        </svg>
+    );
+}
+
+function IconHome(props) {
+    return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+            <path d="M3 11.5 12 4l9 7.5" />
+            <path d="M5 10v10h14V10" />
+            <path d="M10 20v-5h4v5" />
+        </svg>
+    );
+}
+
+function IconLongStay(props) {
+    return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+            <rect x="3.5" y="5" width="17" height="15" rx="2" />
+            <path d="M3.5 9.5h17" />
+            <path d="M8 3.5v3M16 3.5v3" />
+            <text x="12" y="17" textAnchor="middle" fontSize="6" fontWeight="700" stroke="none" fill="currentColor">7+</text>
+        </svg>
+    );
+}
+
+function IconCar(props) {
+    return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+            <path d="M4 14l2-5.5A2 2 0 0 1 7.9 7h8.2a2 2 0 0 1 1.9 1.5L20 14" />
+            <rect x="3" y="14" width="18" height="5" rx="1.5" />
+            <circle cx="7.5" cy="19" r="1.5" fill="currentColor" stroke="none" />
+            <circle cx="16.5" cy="19" r="1.5" fill="currentColor" stroke="none" />
+        </svg>
+    );
+}
+
+function IconSearch(props) {
+    return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+            <circle cx="11" cy="11" r="7" />
+            <path d="m20 20-3.5-3.5" />
+        </svg>
+    );
+}
+
+function IconCalendarIn(props) {
+    return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+            <rect x="3.5" y="5" width="17" height="15" rx="2" />
+            <path d="M3.5 9.5h17" />
+            <path d="M8 3.5v3M16 3.5v3" />
+            <path d="M9 14h4" />
+            <path d="m11 12 2 2-2 2" />
+        </svg>
+    );
+}
+
+function IconCalendarOut(props) {
+    return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+            <rect x="3.5" y="5" width="17" height="15" rx="2" />
+            <path d="M3.5 9.5h17" />
+            <path d="M8 3.5v3M16 3.5v3" />
+            <path d="M15 14h-4" />
+            <path d="m13 12-2 2 2 2" />
+        </svg>
+    );
+}
+
+function IconUsers(props) {
+    return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+            <circle cx="9" cy="8" r="3.5" />
+            <path d="M3 19c0-3 3-5 6-5s6 2 6 5" />
+            <circle cx="16.5" cy="9" r="2.5" />
+            <path d="M16.5 14c2.6 0 4.5 1.6 4.5 4" />
+        </svg>
+    );
+}
+
+function IconChevronDown(props) {
+    return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+            <path d="m6 9 6 6 6-6" />
+        </svg>
+    );
+}
+
+function IconPlane(props) {
+    return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+            <path d="M3 14.5 21 8l-3 12-4-4-4 2-2-2.5z" />
+        </svg>
+    );
+}
+
+function IconPin(props) {
+    return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+            <path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z" />
+            <circle cx="12" cy="9" r="2.5" />
+        </svg>
+    );
+}
+
+function IconClock(props) {
+    return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+            <circle cx="12" cy="12" r="8.5" />
+            <path d="M12 8v4.5l3 1.5" />
+        </svg>
+    );
+}
+
+function IconSwap(props) {
+    return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+            <path d="M4 8h13l-3-3" />
+            <path d="M20 16H7l3 3" />
+        </svg>
+    );
+}
+
 const SEARCH_TABS = [
-    { id: "hotels", icon: "🏨" },
-    { id: "homes", icon: "🏠" },
-    { id: "activities", icon: "🎟️" },
-    { id: "transfer", icon: "🚖" },
+    { id: "hotels", Icon: IconHotels },
+    { id: "homes", Icon: IconHome },
+    { id: "longstays", Icon: IconLongStay },
+    { id: "transfer", Icon: IconCar },
 ];
 
 const COPY = {
@@ -301,19 +431,27 @@ const COPY = {
         searchTabs: {
             hotels: "Hotels",
             homes: "Homes & Apts",
-            activities: "Activities",
+            longstays: "Long stays",
             transfer: "Airport transfer",
         },
-        destinationLabel: "Where to?",
+        stayTypeOvernight: "Overnight Stays",
+        stayTypeDayUse: "Day Use Stays",
+        transferFromAirport: "From airport",
+        transferToAirport: "To airport",
         destinationPlaceholder: "Enter a destination or property",
-        checkInLabel: "Check-in",
-        checkOutLabel: "Check-out",
-        guestsLabel: "Guests & rooms",
+        pickupAirportPlaceholder: "Pick-up airport",
+        pickupLocationPlaceholder: "Pick-up location",
+        destinationLocationPlaceholder: "Destination location",
+        pickupDateLabel: "Pick-up date",
+        passengersLabel: (n) => `${n} passenger${n === 1 ? "" : "s"}`,
+        guestsAdultsOnly: (a) => `${a} adult${a === 1 ? "" : "s"}`,
+        guestsRoomsLine: (r) => `${r} room${r === 1 ? "" : "s"}`,
         guestsSummary: (a, c, r) =>
             `${a} adult${a === 1 ? "" : "s"}${c ? `, ${c} child${c === 1 ? "" : "ren"}` : ""} · ${r} room${r === 1 ? "" : "s"}`,
         adultsLabel: "Adults",
         childrenLabel: "Children",
         roomsLabel: "Rooms",
+        passengersOnlyLabel: "Passengers",
         guestsApply: "Done",
         searchCta: "SEARCH",
         topDestinations: "Top destinations",
@@ -353,19 +491,27 @@ const COPY = {
         searchTabs: {
             hotels: "សណ្ឋាគារ",
             homes: "ផ្ទះ និងបន្ទប់ជួល",
-            activities: "សកម្មភាព",
+            longstays: "ស្នាក់រយៈពេលវែង",
             transfer: "ដឹកជញ្ជូនអាកាសយានដ្ឋាន",
         },
-        destinationLabel: "ទៅណា?",
+        stayTypeOvernight: "ស្នាក់មួយយប់",
+        stayTypeDayUse: "ប្រើតែពេលថ្ងៃ",
+        transferFromAirport: "ពីអាកាសយានដ្ឋាន",
+        transferToAirport: "ទៅអាកាសយានដ្ឋាន",
         destinationPlaceholder: "បញ្ចូលគោលដៅ ឬឈ្មោះអចលនទ្រព្យ",
-        checkInLabel: "ចូលស្នាក់",
-        checkOutLabel: "ចេញ",
-        guestsLabel: "ភ្ញៀវ និងបន្ទប់",
+        pickupAirportPlaceholder: "អាកាសយានដ្ឋានទទួល",
+        pickupLocationPlaceholder: "ទីតាំងទទួល",
+        destinationLocationPlaceholder: "ទីតាំងគោលដៅ",
+        pickupDateLabel: "ថ្ងៃទទួល",
+        passengersLabel: (n) => `${n} អ្នកដំណើរ`,
+        guestsAdultsOnly: (a) => `${a} មនុស្សពេញវ័យ`,
+        guestsRoomsLine: (r) => `${r} បន្ទប់`,
         guestsSummary: (a, c, r) =>
             `${a} មនុស្សពេញវ័យ${c ? `, ${c} កុមារ` : ""} · ${r} បន្ទប់`,
         adultsLabel: "មនុស្សពេញវ័យ",
         childrenLabel: "កុមារ",
         roomsLabel: "បន្ទប់",
+        passengersOnlyLabel: "អ្នកដំណើរ",
         guestsApply: "យល់ព្រម",
         searchCta: "ស្វែងរក",
         topDestinations: "គោលដៅពេញនិយម",
@@ -422,15 +568,30 @@ function formatDateDisplay(iso, locale) {
     if (!iso) return "—";
     try {
         const d = new Date(iso);
-        return new Intl.DateTimeFormat(locale === "km" ? "km-KH" : "en-GB", {
-            day: "2-digit",
-            month: "short",
-            year: "numeric",
-            weekday: "short",
-        }).format(d);
+        const formatter = new Intl.DateTimeFormat(
+            locale === "km" ? "km-KH" : "en-GB",
+            {
+                day: "2-digit",
+                month: "short",
+                year: "numeric",
+                weekday: "long",
+            },
+        );
+        const parts = formatter.formatToParts(d);
+        const lookup = parts.reduce((acc, part) => {
+            if (part.type !== "literal") acc[part.type] = part.value;
+            return acc;
+        }, {});
+        return `${lookup.day} ${lookup.month} ${lookup.year}|${lookup.weekday}`;
     } catch {
         return iso;
     }
+}
+
+function splitDateDisplay(value) {
+    if (!value || typeof value !== "string") return { main: "—", sub: "" };
+    const [main, sub = ""] = value.split("|");
+    return { main, sub };
 }
 
 function ratingLabel(score, locale) {
@@ -634,20 +795,18 @@ function PromotionCard({ promo, gradient, copy }) {
     );
 }
 
-function GuestsPopover({ values, onChange, copy, onClose }) {
+function GuestsPopover({ values, onChange, copy, onClose, rows }) {
     const set = (key, delta) => {
         const next = { ...values };
-        next[key] = Math.max(key === "adults" || key === "rooms" ? 1 : 0, (next[key] || 0) + delta);
+        const definition = rows.find((r) => r.key === key);
+        const min = definition?.min ?? 0;
+        next[key] = Math.max(min, (next[key] || 0) + delta);
         onChange(next);
     };
 
     return (
-        <div className="absolute left-0 right-0 top-full z-30 mt-2 rounded-xl border border-slate-200 bg-white p-4 text-slate-800 shadow-2xl sm:left-auto sm:w-72">
-            {[
-                { key: "adults", label: copy.adultsLabel, min: 1 },
-                { key: "children", label: copy.childrenLabel, min: 0 },
-                { key: "rooms", label: copy.roomsLabel, min: 1 },
-            ].map((row) => (
+        <div className="absolute right-0 left-0 top-full z-30 mt-2 rounded-xl border border-slate-200 bg-white p-4 text-slate-800 shadow-2xl sm:left-auto sm:w-72">
+            {rows.map((row) => (
                 <div
                     key={row.key}
                     className="flex items-center justify-between gap-3 py-2"
@@ -658,7 +817,7 @@ function GuestsPopover({ values, onChange, copy, onClose }) {
                             type="button"
                             aria-label={`Decrease ${row.label}`}
                             onClick={() => set(row.key, -1)}
-                            disabled={values[row.key] <= row.min}
+                            disabled={values[row.key] <= (row.min ?? 0)}
                             className="grid h-8 w-8 place-items-center rounded-full border border-slate-300 text-lg leading-none text-slate-700 transition hover:border-[#0f5ea8] hover:text-[#0f5ea8] disabled:cursor-not-allowed disabled:opacity-40"
                         >
                             –
@@ -688,6 +847,46 @@ function GuestsPopover({ values, onChange, copy, onClose }) {
     );
 }
 
+function DateField({ Icon, value, min, onChange, main, sub }) {
+    const hiddenRef = useRef(null);
+    return (
+        <div
+            role="button"
+            tabIndex={0}
+            onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    hiddenRef.current?.showPicker?.();
+                }
+            }}
+            onClick={() => hiddenRef.current?.showPicker?.()}
+            className="flex cursor-pointer items-center gap-3 rounded-xl bg-white px-4 py-3 transition hover:ring-1 hover:ring-slate-300"
+        >
+            <Icon className="h-5 w-5 shrink-0 text-slate-500" />
+            <span className="flex-1 truncate">
+                <span className="block text-sm font-semibold text-slate-900">
+                    {main || value}
+                </span>
+                {sub ? (
+                    <span className="block text-xs font-medium text-slate-500">
+                        {sub}
+                    </span>
+                ) : null}
+            </span>
+            <input
+                ref={hiddenRef}
+                type="date"
+                value={value}
+                min={min}
+                onChange={(event) => onChange(event.target.value)}
+                className="sr-only"
+                tabIndex={-1}
+                aria-hidden="true"
+            />
+        </div>
+    );
+}
+
 export default function Welcome({
     appName = "Booking ERP",
     locale = "en",
@@ -696,13 +895,19 @@ export default function Welcome({
     const [homeData, setHomeData] = useState(initialData);
     const [, setStatus] = useState("loading");
     const [activeTab, setActiveTab] = useState("hotels");
+    const [stayType, setStayType] = useState("overnight");
+    const [transferDirection, setTransferDirection] = useState("from");
     const [destinationQuery, setDestinationQuery] = useState("");
-    const [checkIn, setCheckIn] = useState(todayPlus(1));
-    const [checkOut, setCheckOut] = useState(todayPlus(2));
+    const [pickupAirport, setPickupAirport] = useState("");
+    const [destinationLocation, setDestinationLocation] = useState("");
+    const [pickupTime, setPickupTime] = useState("12:00");
+    const [checkIn, setCheckIn] = useState(todayPlus(8));
+    const [checkOut, setCheckOut] = useState(todayPlus(15));
     const [guests, setGuests] = useState({
-        adults: 2,
+        adults: 1,
         children: 0,
         rooms: 1,
+        passengers: 1,
     });
     const [guestsOpen, setGuestsOpen] = useState(false);
     const [toast, setToast] = useState(null);
@@ -764,10 +969,29 @@ export default function Welcome({
               { id: "pt-hostel", name: "Hostel", propertyCount: 3 },
           ];
 
-    const guestsSummary = useMemo(
-        () => copy.guestsSummary(guests.adults, guests.children, guests.rooms),
-        [copy, guests],
+    const hasRooms = activeTab !== "transfer";
+    const isTransfer = activeTab === "transfer";
+    const formattedCheckIn = useMemo(
+        () => formatDateDisplay(checkIn, locale),
+        [checkIn, locale],
     );
+    const formattedCheckOut = useMemo(
+        () => formatDateDisplay(checkOut, locale),
+        [checkOut, locale],
+    );
+    const checkInParts = useMemo(
+        () => splitDateDisplay(formattedCheckIn),
+        [formattedCheckIn],
+    );
+    const checkOutParts = useMemo(
+        () => splitDateDisplay(formattedCheckOut),
+        [formattedCheckOut],
+    );
+
+    const handleSwapTransferEnds = () => {
+        setPickupAirport(destinationLocation);
+        setDestinationLocation(pickupAirport);
+    };
 
     const handleSearchSubmit = (event) => {
         event.preventDefault();
@@ -926,116 +1150,370 @@ export default function Welcome({
 
                         <form
                             onSubmit={handleSearchSubmit}
-                            className="mx-auto mt-8 max-w-5xl rounded-2xl bg-white p-3 shadow-2xl shadow-slate-900/20 sm:rounded-3xl sm:p-4"
+                            className="relative mx-auto mt-8 max-w-5xl pb-7"
                         >
-                            {/* Tabs */}
-                            <div className="flex gap-1 overflow-x-auto border-b border-slate-200 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                            {/* Tabs strip — separate white card centered above the form */}
+                            <div className="mx-auto -mb-2 flex w-full max-w-2xl items-end justify-center overflow-x-auto rounded-t-2xl bg-white px-2 pt-2 shadow-[0_-4px_18px_-12px_rgba(15,23,42,0.25)] [scrollbar-width:none] sm:px-4 [&::-webkit-scrollbar]:hidden">
                                 {SEARCH_TABS.map((tab) => {
                                     const isActive = tab.id === activeTab;
+                                    const Icon = tab.Icon;
                                     return (
                                         <button
                                             type="button"
                                             key={tab.id}
-                                            onClick={() => setActiveTab(tab.id)}
+                                            onClick={() => {
+                                                setActiveTab(tab.id);
+                                                setGuestsOpen(false);
+                                            }}
                                             aria-selected={isActive}
-                                            className={`inline-flex shrink-0 items-center gap-2 rounded-md px-4 py-2 text-sm font-semibold transition ${
+                                            className={`relative inline-flex shrink-0 items-center gap-2 px-3 pb-3 pt-2 text-sm font-semibold transition sm:px-4 sm:text-[15px] ${
                                                 isActive
-                                                    ? "bg-[#e8f1fc] text-[#0f5ea8]"
-                                                    : "text-slate-600 hover:bg-slate-50"
+                                                    ? "text-[#1d7bd1]"
+                                                    : "text-slate-700 hover:text-slate-900"
                                             }`}
                                         >
-                                            <span aria-hidden="true">
-                                                {tab.icon}
-                                            </span>
+                                            <Icon className="h-5 w-5" />
                                             {copy.searchTabs[tab.id]}
-                                            {isActive ? (
-                                                <span className="ml-1 h-0.5 w-2 rounded-full bg-[#0f5ea8]" />
-                                            ) : null}
+                                            <span
+                                                aria-hidden="true"
+                                                className={`absolute inset-x-2 -bottom-px h-[3px] rounded-full transition ${
+                                                    isActive
+                                                        ? "bg-[#1d7bd1]"
+                                                        : "bg-transparent"
+                                                }`}
+                                            />
                                         </button>
                                     );
                                 })}
                             </div>
 
-                            {/* Fields */}
-                            <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr_auto] lg:items-stretch">
-                                <label className="group flex flex-col rounded-lg border border-slate-200 px-3 py-2 text-left transition focus-within:border-[#0f5ea8] focus-within:ring-2 focus-within:ring-[#0f5ea8]/20">
-                                    <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                                        {copy.destinationLabel}
-                                    </span>
-                                    <input
-                                        type="text"
-                                        value={destinationQuery}
-                                        onChange={(event) =>
-                                            setDestinationQuery(
-                                                event.target.value,
-                                            )
-                                        }
-                                        placeholder={
-                                            copy.destinationPlaceholder
-                                        }
-                                        className="mt-0.5 w-full bg-transparent text-sm font-semibold text-slate-900 outline-none placeholder:text-slate-400"
-                                    />
-                                </label>
+                            {/* Form body — light slate card with rounded white inputs */}
+                            <div className="rounded-2xl bg-slate-100 px-4 pb-12 pt-5 shadow-2xl shadow-slate-900/20 sm:px-6 sm:pt-6">
+                                {/* Sub-toggles per tab */}
+                                {activeTab === "hotels" ? (
+                                    <div className="mb-4 flex items-center gap-2">
+                                        {[
+                                            {
+                                                id: "overnight",
+                                                label: copy.stayTypeOvernight,
+                                            },
+                                            {
+                                                id: "dayuse",
+                                                label: copy.stayTypeDayUse,
+                                            },
+                                        ].map((option) => {
+                                            const isActive =
+                                                stayType === option.id;
+                                            return (
+                                                <button
+                                                    type="button"
+                                                    key={option.id}
+                                                    onClick={() =>
+                                                        setStayType(option.id)
+                                                    }
+                                                    className={`rounded-full border px-4 py-1.5 text-sm font-semibold transition ${
+                                                        isActive
+                                                            ? "border-[#1d7bd1] bg-white text-[#1d7bd1]"
+                                                            : "border-slate-300 bg-white text-slate-700 hover:border-slate-400"
+                                                    }`}
+                                                >
+                                                    {option.label}
+                                                </button>
+                                            );
+                                        })}
+                                    </div>
+                                ) : null}
 
-                                <label className="flex flex-col rounded-lg border border-slate-200 px-3 py-2 text-left transition focus-within:border-[#0f5ea8] focus-within:ring-2 focus-within:ring-[#0f5ea8]/20">
-                                    <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                                        {copy.checkInLabel}
-                                    </span>
-                                    <input
-                                        type="date"
-                                        value={checkIn}
-                                        min={todayPlus(0)}
-                                        onChange={(event) =>
-                                            setCheckIn(event.target.value)
-                                        }
-                                        className="mt-0.5 w-full bg-transparent text-sm font-semibold text-slate-900 outline-none"
-                                    />
-                                </label>
+                                {isTransfer ? (
+                                    <div className="mb-4 flex items-center gap-2">
+                                        {[
+                                            {
+                                                id: "from",
+                                                label: copy.transferFromAirport,
+                                            },
+                                            {
+                                                id: "to",
+                                                label: copy.transferToAirport,
+                                            },
+                                        ].map((option) => {
+                                            const isActive =
+                                                transferDirection === option.id;
+                                            return (
+                                                <button
+                                                    type="button"
+                                                    key={option.id}
+                                                    onClick={() =>
+                                                        setTransferDirection(
+                                                            option.id,
+                                                        )
+                                                    }
+                                                    className={`rounded-full border px-4 py-1.5 text-sm font-semibold transition ${
+                                                        isActive
+                                                            ? "border-[#1d7bd1] bg-white text-[#1d7bd1]"
+                                                            : "border-slate-300 bg-white text-slate-700 hover:border-slate-400"
+                                                    }`}
+                                                >
+                                                    {option.label}
+                                                </button>
+                                            );
+                                        })}
+                                    </div>
+                                ) : null}
 
-                                <label className="flex flex-col rounded-lg border border-slate-200 px-3 py-2 text-left transition focus-within:border-[#0f5ea8] focus-within:ring-2 focus-within:ring-[#0f5ea8]/20">
-                                    <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                                        {copy.checkOutLabel}
-                                    </span>
-                                    <input
-                                        type="date"
-                                        value={checkOut}
-                                        min={checkIn}
-                                        onChange={(event) =>
-                                            setCheckOut(event.target.value)
-                                        }
-                                        className="mt-0.5 w-full bg-transparent text-sm font-semibold text-slate-900 outline-none"
-                                    />
-                                </label>
+                                {/* Main fields */}
+                                {isTransfer ? (
+                                    <div className="space-y-3">
+                                        <div className="relative grid items-stretch gap-3 sm:grid-cols-2">
+                                            <label className="flex items-center gap-3 rounded-xl bg-white px-4 py-3 text-left transition focus-within:ring-2 focus-within:ring-[#1d7bd1]/30">
+                                                <IconPlane className="h-5 w-5 shrink-0 text-slate-500" />
+                                                <input
+                                                    type="text"
+                                                    value={pickupAirport}
+                                                    onChange={(event) =>
+                                                        setPickupAirport(
+                                                            event.target.value,
+                                                        )
+                                                    }
+                                                    placeholder={
+                                                        copy.pickupAirportPlaceholder
+                                                    }
+                                                    className="w-full bg-transparent text-sm font-semibold text-slate-900 outline-none placeholder:font-normal placeholder:text-slate-400"
+                                                />
+                                            </label>
+                                            <label className="flex items-center gap-3 rounded-xl bg-white px-4 py-3 text-left transition focus-within:ring-2 focus-within:ring-[#1d7bd1]/30">
+                                                <IconPin className="h-5 w-5 shrink-0 text-slate-500" />
+                                                <input
+                                                    type="text"
+                                                    value={destinationLocation}
+                                                    onChange={(event) =>
+                                                        setDestinationLocation(
+                                                            event.target.value,
+                                                        )
+                                                    }
+                                                    placeholder={
+                                                        copy.destinationLocationPlaceholder
+                                                    }
+                                                    className="w-full bg-transparent text-sm font-semibold text-slate-900 outline-none placeholder:font-normal placeholder:text-slate-400"
+                                                />
+                                            </label>
+                                            <button
+                                                type="button"
+                                                onClick={handleSwapTransferEnds}
+                                                aria-label="Swap pickup and destination"
+                                                className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-md border border-slate-200 bg-white p-2 text-slate-600 shadow-sm transition hover:border-[#1d7bd1] hover:text-[#1d7bd1] sm:inline-flex"
+                                            >
+                                                <IconSwap className="h-4 w-4" />
+                                            </button>
+                                        </div>
+                                        <div className="grid gap-3 sm:grid-cols-2">
+                                            <div className="flex items-stretch gap-2 rounded-xl bg-white px-4 py-3">
+                                                <div className="flex flex-1 items-center gap-3">
+                                                    <IconCalendarIn className="h-5 w-5 shrink-0 text-slate-500" />
+                                                    <label className="flex w-full flex-col">
+                                                        <span className="text-[11px] font-medium uppercase tracking-wide text-slate-500">
+                                                            {copy.pickupDateLabel}
+                                                        </span>
+                                                        <input
+                                                            type="date"
+                                                            value={checkIn}
+                                                            min={todayPlus(0)}
+                                                            onChange={(event) =>
+                                                                setCheckIn(
+                                                                    event.target
+                                                                        .value,
+                                                                )
+                                                            }
+                                                            className="w-full bg-transparent text-sm font-semibold text-slate-900 outline-none"
+                                                        />
+                                                    </label>
+                                                </div>
+                                                <div className="flex items-center gap-2 border-l border-slate-200 pl-3">
+                                                    <IconClock className="h-5 w-5 text-slate-500" />
+                                                    <input
+                                                        type="time"
+                                                        value={pickupTime}
+                                                        onChange={(event) =>
+                                                            setPickupTime(
+                                                                event.target
+                                                                    .value,
+                                                            )
+                                                        }
+                                                        className="bg-transparent text-sm font-semibold text-slate-900 outline-none"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className="relative">
+                                                <button
+                                                    type="button"
+                                                    onClick={() =>
+                                                        setGuestsOpen(
+                                                            (prev) => !prev,
+                                                        )
+                                                    }
+                                                    aria-expanded={guestsOpen}
+                                                    className="flex h-full w-full items-center gap-3 rounded-xl bg-white px-4 py-3 text-left transition hover:ring-1 hover:ring-slate-300"
+                                                >
+                                                    <IconUsers className="h-5 w-5 shrink-0 text-slate-500" />
+                                                    <span className="flex-1 truncate text-sm font-semibold text-slate-900">
+                                                        {copy.passengersLabel(
+                                                            guests.passengers ||
+                                                                1,
+                                                        )}
+                                                    </span>
+                                                    <IconChevronDown className="h-4 w-4 shrink-0 text-slate-500" />
+                                                </button>
+                                                {guestsOpen ? (
+                                                    <GuestsPopover
+                                                        values={guests}
+                                                        onChange={setGuests}
+                                                        copy={copy}
+                                                        onClose={() =>
+                                                            setGuestsOpen(false)
+                                                        }
+                                                        rows={[
+                                                            {
+                                                                key: "passengers",
+                                                                label: copy.passengersOnlyLabel,
+                                                                min: 1,
+                                                            },
+                                                        ]}
+                                                    />
+                                                ) : null}
+                                            </div>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="space-y-3">
+                                        <label className="flex items-center gap-3 rounded-xl bg-white px-4 py-3 text-left transition focus-within:ring-2 focus-within:ring-[#1d7bd1]/30">
+                                            <IconSearch className="h-5 w-5 shrink-0 text-slate-500" />
+                                            <input
+                                                type="text"
+                                                value={destinationQuery}
+                                                onChange={(event) =>
+                                                    setDestinationQuery(
+                                                        event.target.value,
+                                                    )
+                                                }
+                                                placeholder={
+                                                    copy.destinationPlaceholder
+                                                }
+                                                className="w-full bg-transparent text-sm font-semibold text-slate-900 outline-none placeholder:font-normal placeholder:text-slate-400"
+                                            />
+                                        </label>
 
-                                <div className="relative">
-                                    <button
-                                        type="button"
-                                        onClick={() =>
-                                            setGuestsOpen((prev) => !prev)
-                                        }
-                                        aria-expanded={guestsOpen}
-                                        className="flex h-full w-full flex-col items-start rounded-lg border border-slate-200 px-3 py-2 text-left transition hover:border-[#0f5ea8]"
-                                    >
-                                        <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                                            {copy.guestsLabel}
-                                        </span>
-                                        <span className="mt-0.5 truncate text-sm font-semibold text-slate-900">
-                                            {guestsSummary}
-                                        </span>
-                                    </button>
-                                    {guestsOpen ? (
-                                        <GuestsPopover
-                                            values={guests}
-                                            onChange={setGuests}
-                                            copy={copy}
-                                            onClose={() => setGuestsOpen(false)}
-                                        />
-                                    ) : null}
-                                </div>
+                                        <div className="grid gap-3 sm:grid-cols-[1fr_1fr_1fr]">
+                                            <DateField
+                                                Icon={IconCalendarIn}
+                                                value={checkIn}
+                                                min={todayPlus(0)}
+                                                onChange={(value) => {
+                                                    setCheckIn(value);
+                                                    if (value >= checkOut) {
+                                                        const next = new Date(
+                                                            value,
+                                                        );
+                                                        next.setDate(
+                                                            next.getDate() + 1,
+                                                        );
+                                                        setCheckOut(
+                                                            next
+                                                                .toISOString()
+                                                                .slice(0, 10),
+                                                        );
+                                                    }
+                                                }}
+                                                main={checkInParts.main}
+                                                sub={checkInParts.sub}
+                                            />
+                                            <DateField
+                                                Icon={IconCalendarOut}
+                                                value={checkOut}
+                                                min={checkIn}
+                                                onChange={setCheckOut}
+                                                main={checkOutParts.main}
+                                                sub={checkOutParts.sub}
+                                            />
+                                            <div className="relative">
+                                                <button
+                                                    type="button"
+                                                    onClick={() =>
+                                                        setGuestsOpen(
+                                                            (prev) => !prev,
+                                                        )
+                                                    }
+                                                    aria-expanded={guestsOpen}
+                                                    className="flex h-full w-full items-center gap-3 rounded-xl bg-white px-4 py-3 text-left transition hover:ring-1 hover:ring-slate-300"
+                                                >
+                                                    <IconUsers className="h-5 w-5 shrink-0 text-slate-500" />
+                                                    <span className="flex-1 truncate">
+                                                        <span className="block text-sm font-semibold text-slate-900">
+                                                            {copy.guestsAdultsOnly(
+                                                                guests.adults,
+                                                            )}
+                                                        </span>
+                                                        {hasRooms ? (
+                                                            <span className="block text-xs font-medium text-slate-500">
+                                                                {copy.guestsRoomsLine(
+                                                                    guests.rooms,
+                                                                )}
+                                                            </span>
+                                                        ) : null}
+                                                    </span>
+                                                    <IconChevronDown className="h-4 w-4 shrink-0 text-slate-500" />
+                                                </button>
+                                                {guestsOpen ? (
+                                                    <GuestsPopover
+                                                        values={guests}
+                                                        onChange={setGuests}
+                                                        copy={copy}
+                                                        onClose={() =>
+                                                            setGuestsOpen(false)
+                                                        }
+                                                        rows={
+                                                            hasRooms
+                                                                ? [
+                                                                      {
+                                                                          key: "adults",
+                                                                          label: copy.adultsLabel,
+                                                                          min: 1,
+                                                                      },
+                                                                      {
+                                                                          key: "children",
+                                                                          label: copy.childrenLabel,
+                                                                          min: 0,
+                                                                      },
+                                                                      {
+                                                                          key: "rooms",
+                                                                          label: copy.roomsLabel,
+                                                                          min: 1,
+                                                                      },
+                                                                  ]
+                                                                : [
+                                                                      {
+                                                                          key: "adults",
+                                                                          label: copy.adultsLabel,
+                                                                          min: 1,
+                                                                      },
+                                                                      {
+                                                                          key: "children",
+                                                                          label: copy.childrenLabel,
+                                                                          min: 0,
+                                                                      },
+                                                                  ]
+                                                        }
+                                                    />
+                                                ) : null}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
 
+                            {/* Overhanging SEARCH button */}
+                            <div className="pointer-events-none absolute inset-x-0 -bottom-1 flex justify-center">
                                 <button
                                     type="submit"
-                                    className="inline-flex h-12 items-center justify-center self-end rounded-md bg-[#0f5ea8] px-8 text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-[#0f5ea8]/40 transition hover:bg-[#0a4a85] sm:col-span-2 lg:col-span-1 lg:h-auto"
+                                    className="pointer-events-auto inline-flex h-14 min-w-[260px] items-center justify-center rounded-full bg-[#1d7bd1] px-12 text-base font-bold uppercase tracking-wider text-white shadow-xl shadow-[#1d7bd1]/40 transition hover:bg-[#1668b3] focus:outline-none focus-visible:ring-4 focus-visible:ring-white/50"
                                 >
                                     {copy.searchCta}
                                 </button>
@@ -1387,13 +1865,12 @@ export default function Welcome({
 }
 
 function DateDisplay({ locale, checkIn, checkOut }) {
-    // Hidden screenreader-only helper so the date inputs above also have
-    // a textual "23 May 2026 Saturday"-style preview à la Agoda for SR users.
+    const inParts = splitDateDisplay(formatDateDisplay(checkIn, locale));
+    const outParts = splitDateDisplay(formatDateDisplay(checkOut, locale));
     return (
         <div className="sr-only">
             <span>
-                {formatDateDisplay(checkIn, locale)} —{" "}
-                {formatDateDisplay(checkOut, locale)}
+                {inParts.main} {inParts.sub} — {outParts.main} {outParts.sub}
             </span>
         </div>
     );
