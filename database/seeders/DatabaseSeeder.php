@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             PaymentMethodsSeeder::class,
             SettingsSeeder::class,
             BookingDemoSeeder::class,
+            PropertiesDemoSeeder::class,
         ]);
     }
 }
