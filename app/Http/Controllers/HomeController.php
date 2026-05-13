@@ -205,22 +205,73 @@ class HomeController extends Controller
                     'comment' => Str::limit((string) $review->comment, 160),
                     'propertyName' => $review->property_name,
                     'city' => $review->city_name,
-                    'guestName' => 'Guest ' . str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT),
+                    'guestName' => 'Guest '.str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT),
                     'date' => $review->created_at ? Carbon::parse($review->created_at)->format('M Y') : null,
+                ];
+            })
+            ->values();
+
+        $promotions = DB::table('promotions as pr')
+            ->leftJoin('properties as p', 'p.id', '=', 'pr.property_id')
+            ->leftJoin('cities as c', 'c.id', '=', 'p.city_id')
+            ->leftJoinSub($imageSubquery, 'images', function ($join) {
+                $join->on('images.property_id', '=', 'p.id');
+            })
+            ->whereNull('pr.deleted_at')
+            ->where('pr.status', 'active')
+            ->where(function ($query) {
+                $query->whereNull('pr.end_date')
+                    ->orWhere('pr.end_date', '>=', now()->toDateString());
+            })
+            ->orderByDesc('pr.start_date')
+            ->limit(6)
+            ->get([
+                'pr.id',
+                'pr.promotion_code',
+                'pr.name',
+                'pr.promotion_type',
+                'pr.discount_value',
+                'pr.start_date',
+                'pr.end_date',
+                'pr.min_nights',
+                'p.name as property_name',
+                'c.name as city_name',
+                'images.cover_image',
+                'images.fallback_image',
+            ])
+            ->map(function ($promotion) {
+                return [
+                    'id' => $promotion->id,
+                    'code' => $promotion->promotion_code,
+                    'name' => $promotion->name,
+                    'type' => $promotion->promotion_type,
+                    'discountValue' => (float) $promotion->discount_value,
+                    'discountLabel' => $promotion->promotion_type === 'percentage'
+                        ? rtrim(rtrim(number_format((float) $promotion->discount_value, 2), '0'), '.').'% off'
+                        : ($promotion->promotion_type === 'fixed'
+                            ? '$'.number_format((float) $promotion->discount_value, 0).' off'
+                            : 'Free night'),
+                    'startDate' => $promotion->start_date ? Carbon::parse($promotion->start_date)->format('d M') : null,
+                    'endDate' => $promotion->end_date ? Carbon::parse($promotion->end_date)->format('d M Y') : null,
+                    'minNights' => (int) $promotion->min_nights,
+                    'propertyName' => $promotion->property_name,
+                    'city' => $promotion->city_name,
+                    'imageUrl' => $this->assetUrl($promotion->cover_image ?: $promotion->fallback_image),
                 ];
             })
             ->values();
 
         return response()->json([
             'hero' => [
-                'headline' => 'Search smarter stays, rates, and experiences in one booking flow.',
-                'subheadline' => 'An Agoda-inspired storefront powered by your Laravel backend data, built for hotels, apartments, and curated city escapes.',
+                'headline' => 'See the world for less',
+                'subheadline' => 'Hotels, homes, activities and airport transfers — all in one booking flow.',
             ],
             'stats' => $stats,
             'destinations' => $destinations,
             'featuredProperties' => $featuredProperties,
             'propertyTypes' => $propertyTypes,
             'reviews' => $reviews,
+            'promotions' => $promotions,
         ]);
     }
 

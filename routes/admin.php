@@ -258,10 +258,12 @@ Route::middleware('auth')->group(function () {
     Route::get('rooms', [RoomController::class, 'index'])->name('rooms.index');
     Route::get('rooms/create', [RoomController::class, 'create'])->name('rooms.create');
     Route::post('rooms', [RoomController::class, 'store'])->name('rooms.store');
-    Route::get('rooms/{id}', [RoomController::class, 'show'])->name('rooms.show');
-    Route::get('rooms/{id}/edit', [RoomController::class, 'edit'])->name('rooms.edit');
-    Route::put('rooms/{id}', [RoomController::class, 'update'])->name('rooms.update');
-    Route::delete('rooms/{id}', [RoomController::class, 'destroy'])->name('rooms.destroy');
+    Route::get('rooms/api/room-types', [RoomController::class, 'roomTypesForProperty'])->name('rooms.room_types');
+    Route::get('rooms/{id}', [RoomController::class, 'show'])->whereNumber('id')->name('rooms.show');
+    Route::get('rooms/{id}/edit', [RoomController::class, 'edit'])->whereNumber('id')->name('rooms.edit');
+    Route::put('rooms/{id}', [RoomController::class, 'update'])->whereNumber('id')->name('rooms.update');
+    Route::patch('rooms/{id}/status', [RoomController::class, 'updateStatus'])->whereNumber('id')->name('rooms.update_status');
+    Route::delete('rooms/{id}', [RoomController::class, 'destroy'])->whereNumber('id')->name('rooms.destroy');
 
     Route::get('room_type_bed_type', [RoomTypeBedTypeController::class, 'index'])->name('room_type_bed_type.index');
     Route::get('room_type_bed_type/create', [RoomTypeBedTypeController::class, 'create'])->name('room_type_bed_type.create');

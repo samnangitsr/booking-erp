@@ -16,27 +16,30 @@ class RolesSeeder extends Seeder
         );
         $superAdmin->syncPermissions(Permission::pluck('id')->all());
 
+        // Admin: everything except the multi-tenant `organization` module
+        // (managing companies / branches is owner-only).
         $admin = Role::firstOrCreate(
             ['name' => 'admin', 'guard_name' => 'web'],
             ['description' => 'Company administrator']
         );
         $admin->syncPermissions(
-            Permission::whereNotIn('module', ['companies'])
-                ->pluck('id')->all()
+            Permission::whereNotIn('module', ['organization'])->pluck('id')->all()
         );
 
+        // Manager: operational modules + reports + own profile.
         $manager = Role::firstOrCreate(
             ['name' => 'manager', 'guard_name' => 'web'],
             ['description' => 'Branch manager']
         );
         $manager->syncPermissions(
             Permission::whereIn('module', [
-                'dashboard','bookings','booking_items','guests','customers','customer_documents',
-                'properties','room_types','rooms','daily_rates','availability_calendars',
-                'payments','invoices','refunds','reviews','reports','profile',
+                'dashboard', 'bookings', 'customers', 'properties', 'rates',
+                'finance', 'marketing', 'services', 'reports', 'profile',
             ])->pluck('id')->all()
         );
 
+        // Staff: front-desk only — view/create/edit bookings + customers,
+        // check guests in / out, take payments, manage own profile.
         $staff = Role::firstOrCreate(
             ['name' => 'staff', 'guard_name' => 'web'],
             ['description' => 'Front desk / staff member']
@@ -44,10 +47,10 @@ class RolesSeeder extends Seeder
         $staff->syncPermissions(
             Permission::whereIn('name', [
                 'dashboard.view',
-                'bookings.view', 'bookings.create', 'bookings.edit', 'bookings.check_in', 'bookings.check_out',
-                'guests.view', 'guests.create', 'guests.edit',
+                'bookings.view', 'bookings.create', 'bookings.edit',
+                'bookings.check_in', 'bookings.check_out',
                 'customers.view', 'customers.create', 'customers.edit',
-                'payments.view', 'payments.create',
+                'finance.view', 'finance.create',
                 'profile.view', 'profile.edit',
             ])->pluck('id')->all()
         );
