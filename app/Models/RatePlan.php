@@ -29,4 +29,14 @@ class RatePlan extends Model
         'cancellation_policy_id' => 'integer',
         'is_refundable' => 'boolean',
     ];
+
+    public function property()
+    {
+        return $this->belongsTo(Property::class);
+    }
+
+    public function roomType()
+    {
+        return $this->belongsTo(RoomType::class);
+    }
 }
