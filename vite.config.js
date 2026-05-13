@@ -10,6 +10,7 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/sass/admin.scss',
                 'resources/js/admin.js',
+                'resources/js/admin/bookings-form.js',
                 'resources/js/inertia/app.jsx',
             ],
             refresh: true,

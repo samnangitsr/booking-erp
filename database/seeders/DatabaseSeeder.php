@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             BedTypesSeeder::class,
             PaymentMethodsSeeder::class,
             SettingsSeeder::class,
+            BookingDemoSeeder::class,
         ]);
     }
 }

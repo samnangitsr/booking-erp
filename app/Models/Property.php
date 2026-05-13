@@ -55,4 +55,19 @@ class Property extends Model
         'created_by' => 'integer',
         'updated_by' => 'integer',
     ];
+
+    public function roomTypes()
+    {
+        return $this->hasMany(RoomType::class);
+    }
+
+    public function rooms()
+    {
+        return $this->hasMany(Room::class);
+    }
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }
