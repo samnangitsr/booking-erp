@@ -6,7 +6,7 @@
 <aside class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
         <div>
-            <img src="{{ asset('assets/backend') }}/assets/images/logo-icon.png" class="logo-icon" alt="logo icon" onerror="this.style.display='none'">
+            <img src="{{ asset('assets/backend') }}/images/logo-icon.png" class="logo-icon" alt="logo icon" onerror="this.style.display='none'">
         </div>
         <div>
             <h4 class="logo-text">{{ config('app.name', 'Booking ERP') }}</h4>

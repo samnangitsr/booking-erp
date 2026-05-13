@@ -3,7 +3,7 @@
 // the optional Aspire theme bundle in public/assets/backend/. If you drop the
 // theme files into that directory their style.css will override these defaults.
 
-@import "bootstrap/scss/bootstrap";
+@use "bootstrap/scss/bootstrap";
 
 @import "flatpickr/dist/flatpickr.min.css";
 @import "tom-select/dist/css/tom-select.bootstrap5.css";
@@ -15,7 +15,7 @@
 
 // Khmer font support
 html[lang="km"] body {
-    font-family: 'Battambang', 'Roboto', 'Noto Sans Khmer', sans-serif;
+    font-family: "Battambang", "Roboto", "Noto Sans Khmer", sans-serif;
 }
 
 // Bootstrap 5 pagination tweak (force the active page colour from theme)
