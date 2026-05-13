@@ -1,0 +1,42 @@
+// Booking ERP — admin bundle styling
+// Bootstrap 5 ships from the npm package so the admin UI works even without
+// the optional Aspire theme bundle in public/assets/backend/. If you drop the
+// theme files into that directory their style.css will override these defaults.
+
+@import "bootstrap/scss/bootstrap";
+
+@import "flatpickr/dist/flatpickr.min.css";
+@import "tom-select/dist/css/tom-select.bootstrap5.css";
+@import "datatables.net-bs5/css/dataTables.bootstrap5.min.css";
+@import "datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css";
+@import "sweetalert2/dist/sweetalert2.min.css";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+@import "simplebar/dist/simplebar.css";
+
+// Khmer font support
+html[lang="km"] body {
+    font-family: 'Battambang', 'Roboto', 'Noto Sans Khmer', sans-serif;
+}
+
+// Bootstrap 5 pagination tweak (force the active page colour from theme)
+.pagination .page-item.active .page-link {
+    background-color: var(--bs-primary, #4f46e5);
+    border-color: var(--bs-primary, #4f46e5);
+}
+
+// Yajra DataTables tweaks to align nicely with Bootstrap 5
+table.dataTable thead th {
+    vertical-align: middle;
+    background-color: #f8f9fa;
+}
+
+// Action buttons used across CRUD list pages
+.action-btn-group .btn {
+    padding: 0.25rem 0.5rem;
+    line-height: 1;
+}
+
+// Tom Select adjustments inside Bootstrap modals
+.ts-wrapper.form-control {
+    padding: 0;
+}
