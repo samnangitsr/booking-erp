@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Booking extends Model
@@ -63,4 +65,67 @@ class Booking extends Model
         'cancelled_at' => 'datetime',
         'created_by' => 'integer',
     ];
+
+    public const STATUSES = [
+        'pending',
+        'confirmed',
+        'checked_in',
+        'checked_out',
+        'cancelled',
+        'no_show',
+    ];
+
+    public const PAYMENT_STATUSES = [
+        'unpaid',
+        'partial',
+        'paid',
+        'refunded',
+    ];
+
+    public const SOURCES = [
+        'website',
+        'mobile_app',
+        'admin',
+        'partner_api',
+    ];
+
+    public function company(): BelongsTo
+    {
+        return $this->belongsTo(Company::class);
+    }
+
+    public function branch(): BelongsTo
+    {
+        return $this->belongsTo(Branch::class);
+    }
+
+    public function customer(): BelongsTo
+    {
+        return $this->belongsTo(Customer::class);
+    }
+
+    public function property(): BelongsTo
+    {
+        return $this->belongsTo(Property::class);
+    }
+
+    public function creator(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
+
+    public function items(): HasMany
+    {
+        return $this->hasMany(BookingItem::class)->orderBy('id');
+    }
+
+    public function payments(): HasMany
+    {
+        return $this->hasMany(Payment::class)->orderByDesc('payment_date');
+    }
+
+    public function statusHistory(): HasMany
+    {
+        return $this->hasMany(BookingStatusHistory::class)->orderByDesc('id');
+    }
 }

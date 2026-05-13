@@ -378,10 +378,17 @@ Route::middleware('auth')->group(function () {
     Route::get('bookings', [BookingController::class, 'index'])->name('bookings.index');
     Route::get('bookings/create', [BookingController::class, 'create'])->name('bookings.create');
     Route::post('bookings', [BookingController::class, 'store'])->name('bookings.store');
-    Route::get('bookings/{id}', [BookingController::class, 'show'])->name('bookings.show');
-    Route::get('bookings/{id}/edit', [BookingController::class, 'edit'])->name('bookings.edit');
-    Route::put('bookings/{id}', [BookingController::class, 'update'])->name('bookings.update');
-    Route::delete('bookings/{id}', [BookingController::class, 'destroy'])->name('bookings.destroy');
+    Route::get('bookings/api/room-types', [BookingController::class, 'roomTypesForProperty'])->name('bookings.room_types');
+    Route::get('bookings/api/rate-plans', [BookingController::class, 'ratePlansForRoomType'])->name('bookings.rate_plans');
+    Route::get('bookings/api/customers', [BookingController::class, 'searchCustomers'])->name('bookings.customers.search');
+    Route::get('bookings/{id}', [BookingController::class, 'show'])->whereNumber('id')->name('bookings.show');
+    Route::get('bookings/{id}/edit', [BookingController::class, 'edit'])->whereNumber('id')->name('bookings.edit');
+    Route::put('bookings/{id}', [BookingController::class, 'update'])->whereNumber('id')->name('bookings.update');
+    Route::delete('bookings/{id}', [BookingController::class, 'destroy'])->whereNumber('id')->name('bookings.destroy');
+    Route::post('bookings/{id}/confirm', [BookingController::class, 'confirm'])->whereNumber('id')->name('bookings.confirm');
+    Route::post('bookings/{id}/check-in', [BookingController::class, 'checkIn'])->whereNumber('id')->name('bookings.check_in');
+    Route::post('bookings/{id}/check-out', [BookingController::class, 'checkOut'])->whereNumber('id')->name('bookings.check_out');
+    Route::post('bookings/{id}/cancel', [BookingController::class, 'cancel'])->whereNumber('id')->name('bookings.cancel');
 
     Route::get('booking_items', [BookingItemController::class, 'index'])->name('booking_items.index');
     Route::get('booking_items/create', [BookingItemController::class, 'create'])->name('booking_items.create');

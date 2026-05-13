@@ -36,4 +36,14 @@ class RoomType extends Model
         'total_rooms' => 'integer',
         'base_price' => 'decimal:2',
     ];
+
+    public function property()
+    {
+        return $this->belongsTo(Property::class);
+    }
+
+    public function ratePlans()
+    {
+        return $this->hasMany(RatePlan::class);
+    }
 }
