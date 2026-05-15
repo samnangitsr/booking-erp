@@ -564,19 +564,47 @@ function todayPlus(days = 0) {
     return iso;
 }
 
+const KM_MONTHS_SHORT = [
+    "មករា",
+    "កុម្ភៈ",
+    "មីនា",
+    "មេសា",
+    "ឧសភា",
+    "មិថុនា",
+    "កក្កដា",
+    "សីហា",
+    "កញ្ញា",
+    "តុលា",
+    "វិច្ឆិកា",
+    "ធ្នូ",
+];
+const KM_WEEKDAYS = [
+    "អាទិត្យ",
+    "ច័ន្ទ",
+    "អង្គារ",
+    "ពុធ",
+    "ព្រហស្បតិ៍",
+    "សុក្រ",
+    "សៅរ៍",
+];
+
 function formatDateDisplay(iso, locale) {
     if (!iso) return "—";
     try {
         const d = new Date(iso);
-        const formatter = new Intl.DateTimeFormat(
-            locale === "km" ? "km-KH" : "en-GB",
-            {
-                day: "2-digit",
-                month: "short",
-                year: "numeric",
-                weekday: "long",
-            },
-        );
+        if (locale === "km") {
+            const day = String(d.getDate()).padStart(2, "0");
+            const month = KM_MONTHS_SHORT[d.getMonth()];
+            const year = d.getFullYear();
+            const weekday = KM_WEEKDAYS[d.getDay()];
+            return `${day} ${month} ${year}|${weekday}`;
+        }
+        const formatter = new Intl.DateTimeFormat("en-GB", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+            weekday: "long",
+        });
         const parts = formatter.formatToParts(d);
         const lookup = parts.reduce((acc, part) => {
             if (part.type !== "literal") acc[part.type] = part.value;
@@ -847,6 +875,49 @@ function GuestsPopover({ values, onChange, copy, onClose, rows }) {
     );
 }
 
+function PickupDateField({ label, value, min, onChange, main, sub }) {
+    const hiddenRef = useRef(null);
+    return (
+        <div
+            role="button"
+            tabIndex={0}
+            onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    hiddenRef.current?.showPicker?.();
+                }
+            }}
+            onClick={() => hiddenRef.current?.showPicker?.()}
+            className="flex flex-1 cursor-pointer items-center gap-3 transition hover:opacity-80"
+        >
+            <IconCalendarIn className="h-5 w-5 shrink-0 text-slate-500" />
+            <span className="flex w-full flex-col">
+                <span className="text-[11px] font-medium uppercase tracking-wide text-slate-500">
+                    {label}
+                </span>
+                <span className="block text-sm font-semibold text-slate-900">
+                    {main || value}
+                </span>
+                {sub ? (
+                    <span className="block text-xs font-medium text-slate-500">
+                        {sub}
+                    </span>
+                ) : null}
+            </span>
+            <input
+                ref={hiddenRef}
+                type="date"
+                value={value}
+                min={min}
+                onChange={(event) => onChange(event.target.value)}
+                className="sr-only"
+                tabIndex={-1}
+                aria-hidden="true"
+            />
+        </div>
+    );
+}
+
 function DateField({ Icon, value, min, onChange, main, sub }) {
     const hiddenRef = useRef(null);
     return (
@@ -969,7 +1040,7 @@ export default function Welcome({
               { id: "pt-hostel", name: "Hostel", propertyCount: 3 },
           ];
 
-    const hasRooms = activeTab !== "transfer";
+    const hasRooms = activeTab === "hotels";
     const isTransfer = activeTab === "transfer";
     const formattedCheckIn = useMemo(
         () => formatDateDisplay(checkIn, locale),
@@ -1307,26 +1378,14 @@ export default function Welcome({
                                         </div>
                                         <div className="grid gap-3 sm:grid-cols-2">
                                             <div className="flex items-stretch gap-2 rounded-xl bg-white px-4 py-3">
-                                                <div className="flex flex-1 items-center gap-3">
-                                                    <IconCalendarIn className="h-5 w-5 shrink-0 text-slate-500" />
-                                                    <label className="flex w-full flex-col">
-                                                        <span className="text-[11px] font-medium uppercase tracking-wide text-slate-500">
-                                                            {copy.pickupDateLabel}
-                                                        </span>
-                                                        <input
-                                                            type="date"
-                                                            value={checkIn}
-                                                            min={todayPlus(0)}
-                                                            onChange={(event) =>
-                                                                setCheckIn(
-                                                                    event.target
-                                                                        .value,
-                                                                )
-                                                            }
-                                                            className="w-full bg-transparent text-sm font-semibold text-slate-900 outline-none"
-                                                        />
-                                                    </label>
-                                                </div>
+                                                <PickupDateField
+                                                    label={copy.pickupDateLabel}
+                                                    value={checkIn}
+                                                    min={todayPlus(0)}
+                                                    onChange={setCheckIn}
+                                                    main={checkInParts.main}
+                                                    sub={checkInParts.sub}
+                                                />
                                                 <div className="flex items-center gap-2 border-l border-slate-200 pl-3">
                                                     <IconClock className="h-5 w-5 text-slate-500" />
                                                     <input
