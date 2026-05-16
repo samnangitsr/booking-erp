@@ -20,7 +20,7 @@ class NotificationController extends BaseCrudController
     protected string $viewName = 'notifications';
     protected string $permissionModule = 'settings';
     protected string $singularLabel = 'notification';
-    protected string $headingKey = 'admin.nav.notifications';
+    protected string $headingKey = 'notifications';
 
     protected array $columns = [
         ['data' => 'id', 'name' => 'id', 'title' => 'ID'],
