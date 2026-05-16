@@ -53,7 +53,7 @@ class RoleController extends BaseCrudController
         return redirect()->route('admin.roles.index');
     }
 
-    public function update(Request $request, int $id): \Illuminate\Http\RedirectResponse
+    public function update(Request $request, int|string $id): \Illuminate\Http\RedirectResponse
     {
         $this->authorizeAbility('edit');
 

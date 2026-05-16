@@ -207,6 +207,7 @@
                 @if($can('reports.view'))<li><a href="{{ route('admin.activity_logs.index') }}"><i class="bi bi-arrow-right-short"></i> {{ __('admin.nav.activity_logs') }}</a></li>@endif
                 @if($can('reports.view'))<li><a href="{{ route('admin.login_histories.index') }}"><i class="bi bi-arrow-right-short"></i> {{ __('admin.nav.login_histories') }}</a></li>@endif
                 @if($can('settings.view'))<li><a href="{{ route('admin.settings.index') }}"><i class="bi bi-arrow-right-short"></i> {{ __('admin.nav.settings') }}</a></li>@endif
+                @if($can('settings.view'))<li><a href="{{ route('admin.notifications.index') }}"><i class="bi bi-arrow-right-short"></i> {{ __('admin.nav.notifications') }}</a></li>@endif
                 @if($can('settings.view'))<li><a href="{{ route('admin.notification_templates.index') }}"><i class="bi bi-arrow-right-short"></i> {{ __('admin.nav.notification_templates') }}</a></li>@endif
             </ul>
         </li>
