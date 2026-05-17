@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class DailyRate extends Model
 {
@@ -36,8 +37,23 @@ class DailyRate extends Model
         'extra_bed_price' => 'decimal:2',
         'min_stay' => 'integer',
         'max_stay' => 'integer',
-        'closed_to_arrival' => 'integer',
-        'closed_to_departure' => 'integer',
-        'stop_sell' => 'integer',
+        'closed_to_arrival' => 'boolean',
+        'closed_to_departure' => 'boolean',
+        'stop_sell' => 'boolean',
     ];
+
+    public function property(): BelongsTo
+    {
+        return $this->belongsTo(Property::class);
+    }
+
+    public function roomType(): BelongsTo
+    {
+        return $this->belongsTo(RoomType::class);
+    }
+
+    public function ratePlan(): BelongsTo
+    {
+        return $this->belongsTo(RatePlan::class);
+    }
 }

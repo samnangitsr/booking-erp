@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             SettingsSeeder::class,
             BookingDemoSeeder::class,
             PropertiesDemoSeeder::class,
+            RatesAvailabilityDemoSeeder::class,
         ]);
     }
 }
