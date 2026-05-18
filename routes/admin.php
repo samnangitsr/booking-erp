@@ -306,6 +306,7 @@ Route::middleware('auth')->group(function () {
     Route::put('cancellation_policies/{id}', [CancellationPolicyController::class, 'update'])->name('cancellation_policies.update');
     Route::delete('cancellation_policies/{id}', [CancellationPolicyController::class, 'destroy'])->name('cancellation_policies.destroy');
 
+    Route::get('rate_plans/api/room-types', [RatePlanController::class, 'roomTypesForProperty'])->name('rate_plans.room_types');
     Route::get('rate_plans', [RatePlanController::class, 'index'])->name('rate_plans.index');
     Route::get('rate_plans/create', [RatePlanController::class, 'create'])->name('rate_plans.create');
     Route::post('rate_plans', [RatePlanController::class, 'store'])->name('rate_plans.store');
@@ -315,6 +316,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('rate_plans/{id}', [RatePlanController::class, 'destroy'])->name('rate_plans.destroy');
 
     Route::get('daily_rates', [DailyRateController::class, 'index'])->name('daily_rates.index');
+    Route::post('daily_rates/bulk', [DailyRateController::class, 'bulkUpdate'])->name('daily_rates.bulk');
+    Route::patch('daily_rates/cell', [DailyRateController::class, 'updateCell'])->name('daily_rates.cell');
     Route::get('daily_rates/create', [DailyRateController::class, 'create'])->name('daily_rates.create');
     Route::post('daily_rates', [DailyRateController::class, 'store'])->name('daily_rates.store');
     Route::get('daily_rates/{id}', [DailyRateController::class, 'show'])->name('daily_rates.show');
@@ -323,6 +326,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('daily_rates/{id}', [DailyRateController::class, 'destroy'])->name('daily_rates.destroy');
 
     Route::get('availability_calendars', [AvailabilityCalendarController::class, 'index'])->name('availability_calendars.index');
+    Route::post('availability_calendars/bulk', [AvailabilityCalendarController::class, 'bulkUpdate'])->name('availability_calendars.bulk');
+    Route::patch('availability_calendars/cell', [AvailabilityCalendarController::class, 'updateCell'])->name('availability_calendars.cell');
     Route::get('availability_calendars/create', [AvailabilityCalendarController::class, 'create'])->name('availability_calendars.create');
     Route::post('availability_calendars', [AvailabilityCalendarController::class, 'store'])->name('availability_calendars.store');
     Route::get('availability_calendars/{id}', [AvailabilityCalendarController::class, 'show'])->name('availability_calendars.show');

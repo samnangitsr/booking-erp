@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class AvailabilityCalendar extends Model
 {
@@ -27,6 +28,27 @@ class AvailabilityCalendar extends Model
         'booked_rooms' => 'integer',
         'blocked_rooms' => 'integer',
         'available_rooms' => 'integer',
-        'stop_sell' => 'integer',
+        'stop_sell' => 'boolean',
     ];
+
+    public function property(): BelongsTo
+    {
+        return $this->belongsTo(Property::class);
+    }
+
+    public function roomType(): BelongsTo
+    {
+        return $this->belongsTo(RoomType::class);
+    }
+
+    /**
+     * Recalculate available_rooms so callers can simply set total/booked/blocked
+     * and let the model derive the net availability.
+     */
+    public function recalcAvailable(): self
+    {
+        $this->available_rooms = max(0, $this->total_rooms - $this->booked_rooms - $this->blocked_rooms);
+
+        return $this;
+    }
 }
