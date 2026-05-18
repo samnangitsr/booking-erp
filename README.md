@@ -208,6 +208,18 @@ controller via `$this->authorizeAbility('create')`. Super admins always pass.
 
 ```bash
 composer test     # PHPUnit + Pest
-npm run lint      # ESLint
 npm run build     # Vite production build
+```
+
+Static + HTTP audit harness:
+
+```bash
+php scripts/audit_schema.php   # Models vs DB columns / fillables / casts
+php scripts/audit_deep.php     # Cross-cutting model / controller consistency
+php scripts/audit_perms.php    # Every controller's $permissionModule is seeded
+php scripts/audit_crud.php     # Every model can be created via its Faker-driven form
+php scripts/audit_routes.php   # Every CRUD controller has the full 7 resource routes
+BASE=http://127.0.0.1:8000 bash scripts/audit_http.sh
+                               # Logs in as each seeded role and walks every admin
+                               # index + create page; requires `npm run build` first.
 ```

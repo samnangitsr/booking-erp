@@ -9,12 +9,23 @@ EMAILS=(super@bookingerp.demo admin@bookingerp.demo manager@bookingerp.demo staf
 PASSWORD=password
 
 # All admin index + create URLs derived from route:list, plus the dashboard.
+# Default `.name` to "" so unnamed Laravel routes (e.g. the framework `up`
+# health-check route) don't crash the jq pipeline with
+# `startswith() requires string inputs`.
 URLS=$(php artisan route:list --json 2>/dev/null \
-  | jq -r '.[] | select(.method | contains("GET")) | select(.name | startswith("admin.") and (endswith(".index") or endswith(".create"))) | .uri')
+  | jq -r '.[] | select((.method // "") | contains("GET")) | select((.name // "") | startswith("admin.") and (endswith(".index") or endswith(".create"))) | .uri')
 URLS=$(printf '%s\nadmin\n' "$URLS")
 
 if [ -z "${URLS}" ]; then
   echo "No admin index routes found"; exit 1
+fi
+
+# Fail fast with a clear hint when the Vite manifest is missing — without it
+# every admin page returns HTTP 500 and the role-by-role smoke test below is
+# meaningless.
+if ! curl -sSf -o /dev/null "$BASE/admin/login"; then
+  echo "[FAIL] GET $BASE/admin/login failed. Did you run 'npm run build' to generate public/build/manifest.json?"
+  exit 1
 fi
 
 failures=0
