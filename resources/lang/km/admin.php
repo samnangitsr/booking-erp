@@ -131,6 +131,7 @@ return [
         'apply' => 'អនុវត្ត',
         'new' => 'ថ្មី',
         'error' => 'មានបញ្ហា',
+        'none' => 'គ្មាន',
     ],
 
     'auth' => [
@@ -421,7 +422,7 @@ return [
         'open_calendar' => 'បើកប្រតិទិន',
         'no_preview' => 'មិនទាន់មានតម្លៃប្រចាំថ្ងៃនៅ ១៤ ថ្ងៃខាងមុខ។',
         'auto_generate' => 'កែប្រែតម្លៃជាបណ្តាក់ៗ',
-        'meal_plans' => [
+        'meal_plan_value' => [
             'none' => 'បន្ទប់តែប៉ុណ្ណោះ',
             'breakfast' => 'អាហារពេលព្រឹក',
             'half_board' => 'ពាក់កណ្តាល',
@@ -432,7 +433,7 @@ return [
             'pay_later' => 'បង់ក្រោយ',
             'pay_at_property' => 'បង់នៅសណ្ឋាគារ',
         ],
-        'status' => [
+        'status_value' => [
             'active' => 'សកម្ម',
             'inactive' => 'អសកម្ម',
         ],
@@ -440,7 +441,7 @@ return [
             'total' => 'គម្រោងសរុប',
             'active' => 'គម្រោងសកម្ម',
             'properties' => 'អចលនទ្រព្យដែលគ្របដណ្តប់',
-            'refundable_pct' => 'អាចសងវិញ %',
+            'refundable' => 'អាចសងវិញ',
         ],
     ],
 

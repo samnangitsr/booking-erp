@@ -131,6 +131,7 @@ return [
         'apply' => 'Apply',
         'new' => 'New',
         'error' => 'Something went wrong',
+        'none' => 'None',
     ],
 
     'auth' => [
@@ -421,7 +422,7 @@ return [
         'open_calendar' => 'Open calendar',
         'no_preview' => 'No daily rates loaded for the next 14 days yet.',
         'auto_generate' => 'Bulk-edit prices for this rate plan',
-        'meal_plans' => [
+        'meal_plan_value' => [
             'none' => 'Room only',
             'breakfast' => 'Breakfast',
             'half_board' => 'Half board',
@@ -432,7 +433,7 @@ return [
             'pay_later' => 'Pay later',
             'pay_at_property' => 'Pay at property',
         ],
-        'status' => [
+        'status_value' => [
             'active' => 'Active',
             'inactive' => 'Inactive',
         ],
@@ -440,7 +441,7 @@ return [
             'total' => 'Total plans',
             'active' => 'Active plans',
             'properties' => 'Properties covered',
-            'refundable_pct' => 'Refundable %',
+            'refundable' => 'Refundable',
         ],
     ],
 
