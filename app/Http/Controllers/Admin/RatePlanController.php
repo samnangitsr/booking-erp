@@ -126,7 +126,7 @@ class RatePlanController extends BaseCrudController
         return redirect()->route('admin.rate_plans.show', $ratePlan->id);
     }
 
-    public function show(int $id): View
+    public function show(int|string $id): View
     {
         $this->authorizeAbility('view');
 
@@ -159,7 +159,7 @@ class RatePlanController extends BaseCrudController
         ]);
     }
 
-    public function edit(int $id): View
+    public function edit(int|string $id): View
     {
         $this->authorizeAbility('edit');
 
@@ -174,7 +174,7 @@ class RatePlanController extends BaseCrudController
         ]);
     }
 
-    public function update(Request $request, int $id): RedirectResponse
+    public function update(Request $request, int|string $id): RedirectResponse
     {
         $this->authorizeAbility('edit');
 
@@ -187,7 +187,7 @@ class RatePlanController extends BaseCrudController
         return redirect()->route('admin.rate_plans.show', $ratePlan->id);
     }
 
-    public function destroy(int $id): RedirectResponse
+    public function destroy(int|string $id): RedirectResponse
     {
         $this->authorizeAbility('delete');
 

@@ -60,23 +60,45 @@
                             <label class="form-label" data-i18n="admin.daily_rates.max_stay">{{ __('admin.daily_rates.max_stay') }}</label>
                             <input type="number" name="max_stay" min="1" class="form-control">
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-check form-switch pt-2">
-                                <input type="hidden" name="stop_sell_present" value="1">
-                                <input class="form-check-input" type="checkbox" name="stop_sell" id="bulk_stop_sell" value="1">
-                                <label class="form-check-label" for="bulk_stop_sell" data-i18n="admin.daily_rates.stop_sell">{{ __('admin.daily_rates.stop_sell') }}</label>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-check form-switch pt-2">
-                                <input class="form-check-input" type="checkbox" name="closed_to_arrival" id="bulk_cta" value="1">
-                                <label class="form-check-label" for="bulk_cta" data-i18n="admin.daily_rates.cta">{{ __('admin.daily_rates.cta') }}</label>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-check form-switch pt-2">
-                                <input class="form-check-input" type="checkbox" name="closed_to_departure" id="bulk_ctd" value="1">
-                                <label class="form-check-label" for="bulk_ctd" data-i18n="admin.daily_rates.ctd">{{ __('admin.daily_rates.ctd') }}</label>
+                        <div class="col-12">
+                            <div class="text-muted small mb-2" data-i18n="admin.daily_rates.restrictions_hint">{{ __('admin.daily_rates.restrictions_hint') }}</div>
+                            <div class="row g-2">
+                                <div class="col-md-4">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="stop_sell_apply" id="apply_bulk_stop_sell" value="1">
+                                            <label class="form-check-label small text-muted" for="apply_bulk_stop_sell" data-i18n="admin.common.apply">{{ __('admin.common.apply') }}</label>
+                                        </div>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" name="stop_sell" id="bulk_stop_sell" value="1">
+                                            <label class="form-check-label" for="bulk_stop_sell" data-i18n="admin.daily_rates.stop_sell">{{ __('admin.daily_rates.stop_sell') }}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="closed_to_arrival_apply" id="apply_bulk_cta" value="1">
+                                            <label class="form-check-label small text-muted" for="apply_bulk_cta" data-i18n="admin.common.apply">{{ __('admin.common.apply') }}</label>
+                                        </div>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" name="closed_to_arrival" id="bulk_cta" value="1">
+                                            <label class="form-check-label" for="bulk_cta" data-i18n="admin.daily_rates.cta">{{ __('admin.daily_rates.cta') }}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="closed_to_departure_apply" id="apply_bulk_ctd" value="1">
+                                            <label class="form-check-label small text-muted" for="apply_bulk_ctd" data-i18n="admin.common.apply">{{ __('admin.common.apply') }}</label>
+                                        </div>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" name="closed_to_departure" id="bulk_ctd" value="1">
+                                            <label class="form-check-label" for="bulk_ctd" data-i18n="admin.daily_rates.ctd">{{ __('admin.daily_rates.ctd') }}</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

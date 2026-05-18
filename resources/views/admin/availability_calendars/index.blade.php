@@ -300,13 +300,18 @@ document.addEventListener('DOMContentLoaded', function () {
             if (k === 'days_of_week[]') {
                 payload.days_of_week = payload.days_of_week || [];
                 payload.days_of_week.push(v);
+            } else if (k === 'stop_sell' || k.endsWith('_apply')) {
+                continue;
             } else if (v === '' && k !== '_token') {
                 continue;
             } else {
                 payload[k] = v;
             }
         }
-        payload.stop_sell = bulkForm.elements.stop_sell.checked ? 1 : 0;
+        // Only send stop_sell when the user explicitly opts in via the matching "apply" checkbox.
+        if (bulkForm.elements.stop_sell_apply?.checked) {
+            payload.stop_sell = bulkForm.elements.stop_sell.checked ? 1 : 0;
+        }
         const res = await fetch(@json(route('admin.availability_calendars.bulk')), {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': csrf, 'Accept': 'application/json' },

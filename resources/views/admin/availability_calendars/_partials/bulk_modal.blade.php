@@ -45,9 +45,15 @@
                             <input type="number" name="blocked_rooms" min="0" class="form-control">
                         </div>
                         <div class="col-md-4">
-                            <div class="form-check form-switch pt-4">
-                                <input class="form-check-input" type="checkbox" name="stop_sell" id="avail_bulk_stop_sell" value="1">
-                                <label class="form-check-label" for="avail_bulk_stop_sell" data-i18n="admin.daily_rates.stop_sell">{{ __('admin.daily_rates.stop_sell') }}</label>
+                            <div class="d-flex align-items-center gap-2 pt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="stop_sell_apply" id="avail_apply_bulk_stop_sell" value="1">
+                                    <label class="form-check-label small text-muted" for="avail_apply_bulk_stop_sell" data-i18n="admin.common.apply">{{ __('admin.common.apply') }}</label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" name="stop_sell" id="avail_bulk_stop_sell" value="1">
+                                    <label class="form-check-label" for="avail_bulk_stop_sell" data-i18n="admin.daily_rates.stop_sell">{{ __('admin.daily_rates.stop_sell') }}</label>
+                                </div>
                             </div>
                         </div>
                     </div>

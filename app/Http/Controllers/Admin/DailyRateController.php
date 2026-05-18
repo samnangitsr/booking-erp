@@ -114,7 +114,7 @@ class DailyRateController extends BaseCrudController
         ]);
     }
 
-    public function show(int $id): View
+    public function show(int|string $id): View
     {
         $this->authorizeAbility('view');
 
@@ -123,7 +123,7 @@ class DailyRateController extends BaseCrudController
         return view('admin.daily_rates.show', compact('rate'));
     }
 
-    public function edit(int $id): View
+    public function edit(int|string $id): View
     {
         $this->authorizeAbility('edit');
 
@@ -139,7 +139,7 @@ class DailyRateController extends BaseCrudController
         ]);
     }
 
-    public function update(Request $request, int $id): RedirectResponse
+    public function update(Request $request, int|string $id): RedirectResponse
     {
         $this->authorizeAbility('edit');
 
@@ -156,7 +156,7 @@ class DailyRateController extends BaseCrudController
         ]);
     }
 
-    public function destroy(int $id): RedirectResponse
+    public function destroy(int|string $id): RedirectResponse
     {
         $this->authorizeAbility('delete');
 
