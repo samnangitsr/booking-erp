@@ -15,6 +15,17 @@ use Illuminate\Support\Arr;
  */
 trait HasRolesAndPermissions
 {
+    /**
+     * Per-instance permission-name cache, keyed by spl_object_id().
+     *
+     * Stored statically because Eloquent models proxy property access through
+     * __get / __set, which silently discards array writes onto regular
+     * instance properties ("Indirect modification of overloaded property").
+     *
+     * @var array<int, \Illuminate\Support\Collection<int, string>>
+     */
+    protected static array $permissionCache = [];
+
     public function roles(): MorphToMany
     {
         return $this->morphToMany(Role::class, 'model', 'model_has_roles', 'model_id', 'role_id');
@@ -91,12 +102,9 @@ trait HasRolesAndPermissions
     /** @return \Illuminate\Support\Collection<int, string> */
     public function allPermissionNames(): \Illuminate\Support\Collection
     {
-        $cacheKey = 'permission_names_'.$this->getKey();
-        if (! property_exists($this, '_permissionCache')) {
-            $this->_permissionCache = [];
-        }
-        if (isset($this->_permissionCache[$cacheKey])) {
-            return $this->_permissionCache[$cacheKey];
+        $oid = spl_object_id($this);
+        if (isset(self::$permissionCache[$oid])) {
+            return self::$permissionCache[$oid];
         }
 
         /** @var Collection<int, Role> $roles */
@@ -106,7 +114,7 @@ trait HasRolesAndPermissions
 
         $names = $rolePermissions->merge($direct)->unique()->values();
 
-        return $this->_permissionCache[$cacheKey] = $names;
+        return self::$permissionCache[$oid] = $names;
     }
 
     private function loadedRoles(): Collection
@@ -120,9 +128,7 @@ trait HasRolesAndPermissions
 
     private function clearPermissionCache(): void
     {
-        if (property_exists($this, '_permissionCache')) {
-            $this->_permissionCache = [];
-        }
+        unset(self::$permissionCache[spl_object_id($this)]);
         $this->unsetRelation('roles');
         $this->unsetRelation('directPermissions');
     }

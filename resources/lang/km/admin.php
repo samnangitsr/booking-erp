@@ -86,6 +86,7 @@ return [
         'activity_logs' => 'កំណត់ហេតុសកម្មភាព',
         'login_histories' => 'ប្រវត្តិចូល',
         'settings' => 'ការកំណត់',
+        'notifications' => 'ការជូនដំណឹង',
         'notification_templates' => 'គំរូការជូនដំណឹង',
     ],
 

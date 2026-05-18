@@ -217,7 +217,7 @@ class BookingController extends BaseCrudController
     /* SHOW */
     /* ------------------------------------------------------------------ */
 
-    public function show(int $id): View
+    public function show(int|string $id): View
     {
         $this->authorizeAbility('view');
 
@@ -244,7 +244,7 @@ class BookingController extends BaseCrudController
     /* EDIT / UPDATE */
     /* ------------------------------------------------------------------ */
 
-    public function edit(int $id): View
+    public function edit(int|string $id): View
     {
         $this->authorizeAbility('edit');
 
@@ -259,7 +259,7 @@ class BookingController extends BaseCrudController
         ]);
     }
 
-    public function update(Request $request, int $id): RedirectResponse
+    public function update(Request $request, int|string $id): RedirectResponse
     {
         $this->authorizeAbility('edit');
 
@@ -278,7 +278,7 @@ class BookingController extends BaseCrudController
         return redirect()->route('admin.bookings.show', $booking->id);
     }
 
-    public function destroy(int $id): RedirectResponse
+    public function destroy(int|string $id): RedirectResponse
     {
         $this->authorizeAbility('delete');
 

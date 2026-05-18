@@ -86,6 +86,7 @@ return [
         'activity_logs' => 'Activity Logs',
         'login_histories' => 'Login Histories',
         'settings' => 'Settings',
+        'notifications' => 'Notifications',
         'notification_templates' => 'Notification Templates',
     ],
 

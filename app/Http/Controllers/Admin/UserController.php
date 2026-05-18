@@ -65,7 +65,7 @@ class UserController extends BaseCrudController
         return redirect()->route('admin.users.index');
     }
 
-    public function update(Request $request, int $id): \Illuminate\Http\RedirectResponse
+    public function update(Request $request, int|string $id): \Illuminate\Http\RedirectResponse
     {
         $this->authorizeAbility('edit');
 
