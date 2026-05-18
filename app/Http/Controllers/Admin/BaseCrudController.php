@@ -108,7 +108,7 @@ abstract class BaseCrudController extends Controller
         return redirect()->route($this->routePrefix().'.index');
     }
 
-    public function show(int $id): View
+    public function show(int|string $id): View
     {
         $this->authorizeAbility('view');
 
@@ -120,7 +120,7 @@ abstract class BaseCrudController extends Controller
         ]);
     }
 
-    public function edit(int $id): View
+    public function edit(int|string $id): View
     {
         $this->authorizeAbility('edit');
 
@@ -135,7 +135,7 @@ abstract class BaseCrudController extends Controller
         ]);
     }
 
-    public function update(Request $request, int $id): RedirectResponse
+    public function update(Request $request, int|string $id): RedirectResponse
     {
         $this->authorizeAbility('edit');
 
@@ -150,7 +150,7 @@ abstract class BaseCrudController extends Controller
         return redirect()->route($this->routePrefix().'.index');
     }
 
-    public function destroy(int $id): RedirectResponse
+    public function destroy(int|string $id): RedirectResponse
     {
         $this->authorizeAbility('delete');
 

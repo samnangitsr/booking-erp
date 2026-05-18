@@ -136,7 +136,7 @@ class RoomTypeController extends BaseCrudController
         return redirect()->route('admin.room_types.show', $roomType->id);
     }
 
-    public function show(int $id): View
+    public function show(int|string $id): View
     {
         $this->authorizeAbility('view');
 
@@ -156,7 +156,7 @@ class RoomTypeController extends BaseCrudController
         ]);
     }
 
-    public function edit(int $id): View
+    public function edit(int|string $id): View
     {
         $this->authorizeAbility('edit');
 
@@ -174,7 +174,7 @@ class RoomTypeController extends BaseCrudController
         ]);
     }
 
-    public function update(Request $request, int $id): RedirectResponse
+    public function update(Request $request, int|string $id): RedirectResponse
     {
         $this->authorizeAbility('edit');
 
@@ -198,7 +198,7 @@ class RoomTypeController extends BaseCrudController
         return redirect()->route('admin.room_types.show', $roomType->id);
     }
 
-    public function destroy(int $id): RedirectResponse
+    public function destroy(int|string $id): RedirectResponse
     {
         $this->authorizeAbility('delete');
 

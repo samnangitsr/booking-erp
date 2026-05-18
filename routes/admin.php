@@ -65,6 +65,7 @@ use App\Http\Controllers\Admin\ReportExportController;
 use App\Http\Controllers\Admin\ActivityLogController;
 use App\Http\Controllers\Admin\LoginHistoryController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\NotificationTemplateController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
@@ -623,6 +624,14 @@ Route::middleware('auth')->group(function () {
     Route::get('settings/{id}/edit', [SettingController::class, 'edit'])->name('settings.edit');
     Route::put('settings/{id}', [SettingController::class, 'update'])->name('settings.update');
     Route::delete('settings/{id}', [SettingController::class, 'destroy'])->name('settings.destroy');
+
+    Route::get('notifications', [NotificationController::class, 'index'])->name('notifications.index');
+    Route::get('notifications/create', [NotificationController::class, 'create'])->name('notifications.create');
+    Route::post('notifications', [NotificationController::class, 'store'])->name('notifications.store');
+    Route::get('notifications/{id}', [NotificationController::class, 'show'])->whereUuid('id')->name('notifications.show');
+    Route::get('notifications/{id}/edit', [NotificationController::class, 'edit'])->whereUuid('id')->name('notifications.edit');
+    Route::put('notifications/{id}', [NotificationController::class, 'update'])->whereUuid('id')->name('notifications.update');
+    Route::delete('notifications/{id}', [NotificationController::class, 'destroy'])->whereUuid('id')->name('notifications.destroy');
 
     Route::get('notification_templates', [NotificationTemplateController::class, 'index'])->name('notification_templates.index');
     Route::get('notification_templates/create', [NotificationTemplateController::class, 'create'])->name('notification_templates.create');
