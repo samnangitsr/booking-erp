@@ -264,11 +264,14 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
         const fd = new FormData(bulkForm);
         const payload = {};
+        const flagKeys = ['stop_sell', 'closed_to_arrival', 'closed_to_departure'];
         for (const [k, v] of fd.entries()) {
             if (k === 'days_of_week[]') {
                 payload.days_of_week = payload.days_of_week || [];
                 payload.days_of_week.push(v);
-            } else if (k.endsWith('_present')) {
+            } else if (k.endsWith('_present') || k.endsWith('_apply')) {
+                continue;
+            } else if (flagKeys.includes(k)) {
                 continue;
             } else if (v === '' && k !== '_token') {
                 continue;
@@ -276,9 +279,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 payload[k] = v;
             }
         }
-        // Boolean toggles
-        ['stop_sell', 'closed_to_arrival', 'closed_to_departure'].forEach((key) => {
-            payload[key] = bulkForm.elements[key]?.checked ? 1 : 0;
+        // Only send boolean toggles when the user explicitly opted in via the matching "apply" checkbox.
+        flagKeys.forEach((key) => {
+            if (bulkForm.elements[`${key}_apply`]?.checked) {
+                payload[key] = bulkForm.elements[key]?.checked ? 1 : 0;
+            }
         });
         const res = await fetch(@json(route('admin.daily_rates.bulk')), {
             method: 'POST',

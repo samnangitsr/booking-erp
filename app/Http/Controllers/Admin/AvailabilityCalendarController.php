@@ -119,7 +119,7 @@ class AvailabilityCalendarController extends BaseCrudController
         ]);
     }
 
-    public function show(int $id): View
+    public function show(int|string $id): View
     {
         $this->authorizeAbility('view');
 
@@ -128,7 +128,7 @@ class AvailabilityCalendarController extends BaseCrudController
         return view('admin.availability_calendars.show', compact('row'));
     }
 
-    public function edit(int $id): View
+    public function edit(int|string $id): View
     {
         $this->authorizeAbility('edit');
 
@@ -144,7 +144,7 @@ class AvailabilityCalendarController extends BaseCrudController
         ]);
     }
 
-    public function update(Request $request, int $id): RedirectResponse
+    public function update(Request $request, int|string $id): RedirectResponse
     {
         $this->authorizeAbility('edit');
 
@@ -160,7 +160,7 @@ class AvailabilityCalendarController extends BaseCrudController
         ]);
     }
 
-    public function destroy(int $id): RedirectResponse
+    public function destroy(int|string $id): RedirectResponse
     {
         $this->authorizeAbility('delete');
 
@@ -189,18 +189,15 @@ class AvailabilityCalendarController extends BaseCrudController
         $roomType = RoomType::findOrFail($data['room_type_id']);
 
         $dateStr = CarbonImmutable::parse($data['available_date'])->toDateString();
-        $row = AvailabilityCalendar::firstOrNew([
-            'room_type_id' => $roomType->id,
-        ]);
-        $existing = AvailabilityCalendar::query()
+        $row = AvailabilityCalendar::query()
             ->where('room_type_id', $roomType->id)
             ->whereDate('available_date', $dateStr)
             ->first();
-        if ($existing) {
-            $row = $existing;
-        } else {
-            $row->room_type_id = $roomType->id;
-            $row->available_date = $dateStr;
+        if (! $row) {
+            $row = new AvailabilityCalendar([
+                'room_type_id' => $roomType->id,
+                'available_date' => $dateStr,
+            ]);
         }
         $row->property_id = $roomType->property_id;
         if (isset($data['total_rooms'])) {
