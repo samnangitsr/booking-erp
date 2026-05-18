@@ -142,6 +142,8 @@
     const globalMasters = () => Array.from(document.querySelectorAll('.js-perm-master-all'));
     const counter = document.getElementById('js-permissions-count');
 
+    // Pure binary: master is checked only when ALL of its children are checked,
+    // otherwise it's empty (no indeterminate dash).
     function refreshCounters() {
         const all = allCheckboxes();
         const checked = all.filter(cb => cb.checked).length;
@@ -151,14 +153,13 @@
             const group = master.dataset.group;
             const groupBoxes = all.filter(cb => cb.dataset.group === group);
             const groupChecked = groupBoxes.filter(cb => cb.checked).length;
-            master.checked = groupChecked === groupBoxes.length && groupBoxes.length > 0;
-            master.indeterminate = groupChecked > 0 && groupChecked < groupBoxes.length;
+            master.checked = groupBoxes.length > 0 && groupChecked === groupBoxes.length;
+            master.indeterminate = false;
         });
 
-        const totalChecked = all.filter(cb => cb.checked).length;
         globalMasters().forEach(master => {
-            master.checked = totalChecked === all.length && all.length > 0;
-            master.indeterminate = totalChecked > 0 && totalChecked < all.length;
+            master.checked = all.length > 0 && checked === all.length;
+            master.indeterminate = false;
         });
     }
 
