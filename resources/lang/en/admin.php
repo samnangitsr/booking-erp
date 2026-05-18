@@ -135,6 +135,26 @@ return [
         'none' => 'None',
     ],
 
+    'roles' => [
+        'permissions' => 'Permissions',
+        'permissions_hint' => 'Pick the modules and actions this role can perform. Use the master checkboxes to toggle entire groups or every permission at once.',
+        'selected' => 'Selected',
+        'group' => 'Group',
+        'access' => 'Access',
+        'select_all' => 'Select all permissions',
+        'select_group' => 'Toggle all permissions for :group',
+        'guard_name' => 'Guard name',
+        'actions' => [
+            'view' => 'View',
+            'create' => 'Create',
+            'edit' => 'Edit',
+            'delete' => 'Delete',
+            'cancel' => 'Cancel',
+            'check_in' => 'Check-in',
+            'check_out' => 'Check-out',
+        ],
+    ],
+
     'auth' => [
         'sign_in' => 'Sign in',
         'sign_in_subtitle' => 'Welcome back, please sign in to continue.',
