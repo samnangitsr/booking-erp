@@ -479,6 +479,9 @@ return [
         'bulk_applied' => ':count daily rates updated.',
         'bulk_done' => ':count daily rates updated.',
         'bulk_no_fields' => 'Select at least one field to update.',
+        'legend' => 'Legend:',
+        'legend_cta' => 'Closed to arrival',
+        'legend_ctd' => 'Closed to departure',
     ],
 
     'availability' => [

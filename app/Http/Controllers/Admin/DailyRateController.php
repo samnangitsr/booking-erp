@@ -184,21 +184,32 @@ class DailyRateController extends BaseCrudController
 
         $ratePlan = RatePlan::findOrFail($data['rate_plan_id']);
 
-        $row = DailyRate::updateOrCreate(
-            [
+        $dateStr = CarbonImmutable::parse($data['rate_date'])->toDateString();
+        $row = DailyRate::query()
+            ->where('rate_plan_id', $ratePlan->id)
+            ->where('room_type_id', $ratePlan->room_type_id)
+            ->whereDate('rate_date', $dateStr)
+            ->first();
+        if (! $row) {
+            $row = new DailyRate([
                 'rate_plan_id' => $ratePlan->id,
                 'room_type_id' => $ratePlan->room_type_id,
-                'rate_date' => $data['rate_date'],
-            ],
-            [
-                'property_id' => $ratePlan->property_id,
-                'base_price' => $data['base_price'] ?? 0,
-                'adult_price' => $data['base_price'] ?? 0,
-                'currency_code' => 'USD',
-                'min_stay' => $data['min_stay'] ?? 1,
-                'stop_sell' => (bool) ($data['stop_sell'] ?? false),
-            ],
-        );
+                'rate_date' => $dateStr,
+            ]);
+        }
+        $row->property_id = $ratePlan->property_id;
+        $row->currency_code = $row->currency_code ?: 'USD';
+        if (array_key_exists('base_price', $data) && $data['base_price'] !== null) {
+            $row->base_price = $data['base_price'];
+            $row->adult_price = $data['base_price'];
+        }
+        if (array_key_exists('min_stay', $data) && $data['min_stay'] !== null) {
+            $row->min_stay = $data['min_stay'];
+        }
+        if (array_key_exists('stop_sell', $data)) {
+            $row->stop_sell = (bool) $data['stop_sell'];
+        }
+        $row->save();
 
         return response()->json([
             'ok' => true,
@@ -266,23 +277,29 @@ class DailyRateController extends BaseCrudController
                     continue;
                 }
 
-                $defaults = array_merge(
-                    [
-                        'property_id' => $ratePlan->property_id,
-                        'room_type_id' => $ratePlan->room_type_id,
-                        'currency_code' => 'USD',
-                    ],
-                    $updates,
-                );
-
-                DailyRate::updateOrCreate(
-                    [
+                $dateStr = $d->toDateString();
+                $row = DailyRate::query()
+                    ->where('rate_plan_id', $ratePlan->id)
+                    ->where('room_type_id', $ratePlan->room_type_id)
+                    ->whereDate('rate_date', $dateStr)
+                    ->first();
+                if (! $row) {
+                    $row = new DailyRate([
                         'rate_plan_id' => $ratePlan->id,
                         'room_type_id' => $ratePlan->room_type_id,
-                        'rate_date' => $d->toDateString(),
-                    ],
-                    $defaults,
-                );
+                        'rate_date' => $dateStr,
+                    ]);
+                    $row->property_id = $ratePlan->property_id;
+                    $row->currency_code = 'USD';
+                }
+                $row->property_id = $ratePlan->property_id;
+                if (! $row->currency_code) {
+                    $row->currency_code = 'USD';
+                }
+                foreach ($updates as $field => $value) {
+                    $row->{$field} = $value;
+                }
+                $row->save();
 
                 $touched++;
             }
